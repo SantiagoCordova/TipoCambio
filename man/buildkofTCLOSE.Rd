@@ -4,7 +4,10 @@
 \alias{buildkofTCLOSE}
 \title{buildkofTCLOSE}
 \usage{
-buildkofTCLOSE()
+buildkofTCLOSE(.path)
+}
+\arguments{
+\item{.path}{MEMORY PATH OF REPORT}
 }
 \value{
 kofTCClose

@@ -1,12 +1,16 @@
 
 #' buildkofTCLOSE
 #'
+#' @param .path MEMORY PATH OF REPORT
+#'
 #' @return kofTCClose
 #' @export
 #' @import dplyr tidyr readxl
 
-buildkofTCLOSE <- function(){
-  kofTCClose <- readxl::read_excel("data/2023-03-Tipos-de-Cambio-KOF.xlsx",
+buildkofTCLOSE <- function(.path){
+  kofTCClose <-
+    .path %>%
+    readxl::read_excel(.,
                            sheet = "TC | Cierre",
                            skip = 7,
                            col_types = c("numeric", "date", "numeric", "numeric", "numeric",
@@ -42,4 +46,5 @@ buildkofTCLOSE <- function(){
   kofTCClose <- kofTCClose %>%
     left_join(., tiposcambioMeta)
 
+  return(kofTCClose)
 }
